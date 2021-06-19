@@ -6,7 +6,7 @@ project(
 )
 
 targetChip = option('chip')
-if targetChip == 'unknown':
+if targetChip == 'unknown'
 	error('You must set the target Tiva-C to use')
 endif
 

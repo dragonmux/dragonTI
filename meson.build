@@ -5,7 +5,7 @@ project(
 	meson_version: '>= 0.53'
 )
 
-targetChip = option('chip')
+targetChip = get_option('chip')
 if targetChip == 'unknown'
 	error('You must set the target Tiva-C to use')
 endif

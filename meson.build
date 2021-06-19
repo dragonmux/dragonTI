@@ -12,6 +12,6 @@ endif
 
 dragonTI_dep = declare_dependency(
 	compile_args: '-D@0@'.format(targetChip.to_upper()),
-	include_directories: include_directory('.'),
+	include_directories: include_directories('.'),
 	link_args: ['-T', '@0@/@1@/linkerScript.ld'.format(meson.current_source_dir(), targetChip)]
 )

@@ -112,16 +112,16 @@ namespace tivaC
 		volatile uint32_t icr; // Watchdog Interrupt Clear
 		volatile uint32_t ris; // Watchdog Raw Interrupt Status
 		volatile uint32_t mis; // Watchdog Masked Interrupt Status
-		const volatile uint32_t reserved0[256];
+		std::array<const volatile uint32_t, 256> reserved0;
 		volatile uint32_t test;
-		const volatile uint32_t reserved1[505];
+		std::array<const volatile uint32_t, 505> reserved1;
 		volatile uint32_t lock;
 	};
 
 	// GPIO peripheral structure
 	struct gpio_t final
 	{
-		volatile uint32_t dataBits[255];
+		std::array<volatile uint32_t, 255> dataBits;
 		volatile uint32_t data;
 		volatile uint32_t dir; // GPIO Direction
 		volatile uint32_t is; // GPIO Interrupt Sense
@@ -132,7 +132,7 @@ namespace tivaC
 		volatile uint32_t mis; // GPIO Masked Interrupt Status
 		volatile uint32_t icr; // GPIO Interrupt Clear
 		volatile uint32_t afSel; // GPIO Alternate Function Select
-		const volatile uint32_t reserved1[55];
+		std::array<const volatile uint32_t, 55> reserved1;
 		volatile uint32_t dr2r; // GPIO 2-mA Drive Select
 		volatile uint32_t dr4r; // GPIO 4-mA Drive Select
 		volatile uint32_t dr8r; // GPIO 8-mA Drive Select
@@ -162,7 +162,7 @@ namespace tivaC
 		volatile uint32_t mis; // SSI Masked Interrupt Status
 		volatile uint32_t icr; // SSI Interrupt Clear
 		volatile uint32_t dmaCtrl; // SSI DMA Control
-		const volatile uint32_t reserved[1000];
+		std::array<const volatile uint32_t, 1000> reserved;
 		volatile uint32_t clockConfig;
 	};
 
@@ -175,7 +175,7 @@ namespace tivaC
 			volatile uint32_t status; // UART Receive Status/Error Clear
 			volatile uint32_t errClr; // UART Receive Status/Error Clear
 		};
-		const volatile uint32_t reserved0[4];
+		std::array<const volatile uint32_t, 4> reserved0;
 		volatile uint32_t flag;
 		const volatile uint32_t reserved1;
 		volatile uint32_t ilpr; // UART IrDA Low-Power Register
@@ -189,10 +189,10 @@ namespace tivaC
 		volatile uint32_t mis; // UART Masked Interrupt Status
 		volatile uint32_t icr; // UART Interrupt Clear
 		volatile uint32_t dmaCtrl; // UART DMA Control
-		const volatile uint32_t reserved2[22];
+		std::array<const volatile uint32_t, 22> reserved2;
 		volatile uint32_t bit9Addr; // UART 9-Bit Self Address
 		volatile uint32_t bit9AMask; // UART 9-Bit Self Address Mask
-		const volatile uint32_t reserved3[965];
+		std::array<const volatile uint32_t, 965> reserved3;
 		volatile uint32_t peripheralProps;
 		const volatile uint32_t reserved4;
 		volatile uint32_t clockConfig;
@@ -217,9 +217,9 @@ namespace tivaC
 		volatile uint32_t controlerClkOCnt; // I2C Controller Clock Low Timeout Count
 		const volatile uint32_t reserved0;
 		volatile uint32_t controlerBMon; // I2C Controller Bus Monitor
-		const volatile uint32_t reserved1[2];
+		std::array<const volatile uint32_t, 2> reserved1;
 		volatile uint32_t controlerConfig2;
-		const volatile uint32_t reserved2[497];
+		std::array<const volatile uint32_t, 497> reserved2;
 
 		volatile uint32_t periphOwnAddr1; // I2C Peripheral Own (local device) Address 1
 		union
@@ -234,7 +234,7 @@ namespace tivaC
 		volatile uint32_t periphICR; // I2C Peripheral Interrupt Clear
 		volatile uint32_t periphOwnAddr2; // I2C Peripheral Own (local device) Address 2
 		volatile uint32_t periphAckCtrl; // I2C Peripheral ACK Control
-		const volatile uint32_t reserved3[487];
+		std::array<const volatile uint32_t, 487> reserved3;
 
 		volatile uint32_t peripheralProps; // I2C Peripheral Properties
 		volatile uint32_t peripheralConfig; // I2C Peripheral Configuration
@@ -254,7 +254,7 @@ namespace tivaC
 		volatile uint32_t status;
 		volatile uint32_t faultValue;
 		volatile uint32_t enUpd; // PWM Enable Update
-		const volatile uint32_t reserved0[5];
+		std::array<const volatile uint32_t, 5> reserved0;
 		volatile uint32_t chn0Ctrl; // PWM0 Control
 		volatile uint32_t chn0IntEn; // PWM0 Interrupt and Trigger Enable
 		volatile uint32_t chn0RIS; // PWM0 Raw Interrupt Status
@@ -319,21 +319,21 @@ namespace tivaC
 		volatile uint32_t chn3FaultSource0;
 		volatile uint32_t chn3FaultSource1;
 		volatile uint32_t chn3MinFaultPeriod;
-		const volatile uint32_t reserved1[432];
+		std::array<const volatile uint32_t, 432> reserved1;
 		volatile uint32_t chn0FaultSense;
 		const volatile uint32_t chn0FaultStatus0;
 		const volatile uint32_t chn0FaultStatus1;
-		const volatile uint32_t reserved2[29];
+		std::array<const volatile uint32_t, 29> reserved2;
 		volatile uint32_t chn1FaultSense;
 		const volatile uint32_t chn1FaultStatus0;
 		const volatile uint32_t chn1FaultStatus1;
-		const volatile uint32_t reserved3[30];
+		std::array<const volatile uint32_t, 30> reserved3;
 		const volatile uint32_t chn2FaultStatus0;
 		const volatile uint32_t chn2FaultStatus1;
-		const volatile uint32_t reserved4[30];
+		std::array<const volatile uint32_t, 30> reserved4;
 		const volatile uint32_t chn3FaultStatus0;
 		const volatile uint32_t chn3FaultStatus1;
-		const volatile uint32_t reserved5[397];
+		std::array<const volatile uint32_t, 397> reserved5;
 		volatile uint32_t peripheralProps;
 	};
 
@@ -383,7 +383,7 @@ namespace tivaC
 		volatile uint32_t timerBPrescaleSnap; // GPTM Timer B Prescale Snapshot
 		volatile uint32_t timerAPrescaleValue;
 		volatile uint32_t timerBPrescaleValue;
-		const volatile uint32_t reserved1[981];
+		std::array<const volatile uint32_t, 981> reserved1;
 		volatile uint32_t peripheralProps;
 	};
 
@@ -412,30 +412,30 @@ namespace tivaC
 		volatile uint32_t sampSeqFIFOStatus0;
 		volatile uint32_t sampSeqOperation0;
 		volatile uint32_t sampSeqDigiComp0; // ADC Sample Sequence 0 Digital Comparator Select
-		const volatile uint32_t reserved2[2];
+		std::array<const volatile uint32_t, 2> reserved2;
 		volatile uint32_t sampSeqMux1; // ADC Sample Sequence Input Multiplexer Select 1
 		volatile uint32_t sampSeqCtrl1;
 		volatile uint32_t sampSeqFIFO1;
 		volatile uint32_t sampSeqFIFOStatus1;
 		volatile uint32_t sampSeqOperation1;
 		volatile uint32_t sampSeqDigiComp1; // ADC Sample Sequence 1 Digital Comparator Select
-		const volatile uint32_t reserved3[2];
+		std::array<const volatile uint32_t, 2> reserved3;
 		volatile uint32_t sampSeqMux2; // ADC Sample Sequence Input Multiplexer Select 2
 		volatile uint32_t sampSeqCtrl2;
 		volatile uint32_t sampSeqFIFO2;
 		volatile uint32_t sampSeqFIFOStatus2;
 		volatile uint32_t sampSeqOperation2;
 		volatile uint32_t sampSeqDigiComp2; // ADC Sample Sequence 2 Digital Comparator Select
-		const volatile uint32_t reserved4[2];
+		std::array<const volatile uint32_t, 2> reserved4;
 		volatile uint32_t sampSeqMux3; // ADC Sample Sequence Input Multiplexer Select 3
 		volatile uint32_t sampSeqCtrl3;
 		volatile uint32_t sampSeqFIFO3;
 		volatile uint32_t sampSeqFIFOStatus3;
 		volatile uint32_t sampSeqOperation3;
 		volatile uint32_t sampSeqDigiComp3; // ADC Sample Sequence 3 Digital Comparator Select
-		const volatile uint32_t reserved5[786];
+		std::array<const volatile uint32_t, 786> reserved5;
 		volatile uint32_t digiCompRIC; // ADC Digital Comparator Reset Initial Conditions
-		const volatile uint32_t reserved6[63];
+		std::array<const volatile uint32_t, 63> reserved6;
 		volatile uint32_t digiCompCtrl0; // ADC Digital Comparator Control 0
 		volatile uint32_t digiCompCtrl1; // ADC Digital Comparator Control 1
 		volatile uint32_t digiCompCtrl2; // ADC Digital Comparator Control 2
@@ -444,7 +444,7 @@ namespace tivaC
 		volatile uint32_t digiCompCtrl5; // ADC Digital Comparator Control 5
 		volatile uint32_t digiCompCtrl6; // ADC Digital Comparator Control 6
 		volatile uint32_t digiCompCtrl7; // ADC Digital Comparator Control 7
-		const volatile uint32_t reserved7[8];
+		std::array<const volatile uint32_t, 8> reserved7;
 		volatile uint32_t digiCompCMP0; // ADC Digital Comparator Range 0
 		volatile uint32_t digiCompCMP1; // ADC Digital Comparator Range 1
 		volatile uint32_t digiCompCMP2; // ADC Digital Comparator Range 2
@@ -453,7 +453,7 @@ namespace tivaC
 		volatile uint32_t digiCompCMP5; // ADC Digital Comparator Range 5
 		volatile uint32_t digiCompCMP6; // ADC Digital Comparator Range 6
 		volatile uint32_t digiCompCMP7; // ADC Digital Comparator Range 7
-		const volatile uint32_t reserved8[88];
+		std::array<const volatile uint32_t, 88> reserved8;
 		volatile uint32_t peripheralProps;
 		volatile uint32_t peripheralConfig;
 		volatile uint32_t clockConfig;
@@ -467,13 +467,13 @@ namespace tivaC
 		volatile uint32_t intEn; // Analog Comparator Interrupt Enable
 		const volatile uint32_t reserved0;
 		volatile uint32_t refCtrl; // Analog Comparator Reference Voltage Control
-		const volatile uint32_t reserved1[3];
+		std::array<const volatile uint32_t, 3> reserved1;
 		volatile uint32_t status0;
 		volatile uint32_t ctrl0;
-		const volatile uint32_t reserved2[6];
+		std::array<const volatile uint32_t, 6> reserved2;
 		volatile uint32_t status1;
 		volatile uint32_t ctrl1;
-		const volatile uint32_t reserved3[990];
+		std::array<const volatile uint32_t, 990> reserved3;
 		volatile uint32_t peripheralProps;
 	};
 
@@ -504,7 +504,7 @@ namespace tivaC
 		volatile uint32_t if1DataA2; // CAN IF1 Data A2
 		volatile uint32_t if1DataB1; // CAN IF1 Data B1
 		volatile uint32_t if1DataB2; // CAN IF1 Data B2
-		const volatile uint32_t reserved1[13];
+		std::array<const volatile uint32_t, 13> reserved1;
 		volatile uint32_t if2CmdReq; // CAN IF2 Command Request
 
 		union
@@ -521,16 +521,16 @@ namespace tivaC
 		volatile uint32_t if2DataA2; // CAN IF2 Data A2
 		volatile uint32_t if2DataB1; // CAN IF2 Data B1
 		volatile uint32_t if2DataB2; // CAN IF2 Data B2
-		const volatile uint32_t reserved2[21];
+		std::array<const volatile uint32_t, 21> reserved2;
 		volatile uint32_t txReq1; // CAN Transmission Request 1
 		volatile uint32_t txReq2; // CAN Transmission Request 2
-		const volatile uint32_t reserved3[6];
+		std::array<const volatile uint32_t, 6> reserved3;
 		volatile uint32_t newDataA1; // CAN New Data 1
 		volatile uint32_t newDataA2; // CAN New Data 2
-		const volatile uint32_t reserved4[6];
+		std::array<const volatile uint32_t, 6> reserved4;
 		volatile uint32_t message1Int; // CAN Message 1 Interrupt Pending
 		volatile uint32_t message2Int; // CAN Message 2 Interrupt Pending
-		const volatile uint32_t reserved5[6];
+		std::array<const volatile uint32_t, 6> reserved5;
 		volatile uint32_t message1Valid; // CAN Message 1 Valid
 		volatile uint32_t message2Valid; // CAN Message 2 Valid
 	};
@@ -561,7 +561,7 @@ namespace tivaC
 
 		struct ep0Ctrl_t final
 		{
-			const volatile uint32_t reserved0[16];
+			std::array<const volatile uint32_t, 16> reserved0;
 			const volatile uint16_t reserved1;
 			volatile uint8_t statusCtrlL;
 			volatile uint8_t statusCtrlH;
@@ -607,16 +607,16 @@ namespace tivaC
 		volatile uint16_t frameValue;
 		volatile uint8_t epIndex;
 		volatile uint8_t test;
-		const volatile uint32_t reserved0[4];
+		std::array<const volatile uint32_t, 4> reserved0;
 		std::array<volatile fifo_t, 8> epFIFO;
-		const volatile uint32_t reserved1[8];
+		std::array<const volatile uint32_t, 8> reserved1;
 		volatile uint8_t deviceCtrl;
 		const volatile uint8_t reserved2;
 		volatile uint8_t txFIFOSize;
 		volatile uint8_t rxFIFOSize;
 		volatile uint16_t txFIFOAddr;
 		volatile uint16_t rxFIFOAddr;
-		const volatile uint32_t reserved3[4];
+		std::array<const volatile uint32_t, 4> reserved3;
 		const volatile uint16_t reserved4;
 		volatile uint8_t connectTiming;
 		volatile uint8_t VPLEN; // USB OTG VBUS Pulse Timing
@@ -625,10 +625,10 @@ namespace tivaC
 		volatile uint8_t lowSpeedEOF; // USB Low-Speed Last Transaction to End of Frame Timing
 		const volatile uint8_t reserved6;
 		ep0Config_t ep0Config;
-		epConfig_t epConfigs[7];
+		std::array<epConfig_t, 7> epConfigs;
 		ep0Ctrl_t ep0Ctrl;
-		epCtrl_t epCtrls[7];
-		const volatile uint32_t reserved7[97];
+		std::array<epCtrl_t, 7> epCtrls;
+		std::array<const volatile uint32_t, 97> reserved7;
 		volatile uint16_t ep1ReqPacketCount;
 		const volatile uint16_t reserved8;
 		volatile uint16_t ep2ReqPacketCount;
@@ -643,10 +643,10 @@ namespace tivaC
 		const volatile uint16_t reserved13;
 		volatile uint16_t ep7ReqPacketCount;
 		const volatile uint16_t reserved14;
-		const volatile uint32_t reserved15[8];
+		std::array<const volatile uint32_t, 8> reserved15;
 		volatile uint16_t rxPacketDoubleBuffEnable;
 		volatile uint16_t txPacketDoubleBuffEnable;
-		const volatile uint32_t reserved16[47];
+		std::array<const volatile uint32_t, 47> reserved16;
 		volatile uint32_t extPwrCtrl; // USB External Power Control
 		volatile uint32_t extPwrCtrlRIS; // USB External Power Control Raw Interrupt Status
 		volatile uint32_t extPwrCtrlIM; // USB External Power Control Interrupt Mask
@@ -655,7 +655,7 @@ namespace tivaC
 		volatile uint32_t deviceResumeIM; // USB Device RESUME Interrupt Mask
 		volatile uint32_t deviceResumeISC; // USB Device RESUME Interrupt Status and Clear
 		volatile uint32_t gpCtrlStatus; // USB General-Purpose Control and Status
-		const volatile uint32_t reserved17[4];
+		std::array<const volatile uint32_t, 4> reserved17;
 		volatile uint32_t vbusDroopCtrl; // USB VBUS Droop Control
 		volatile uint32_t vbusDroopCtrlRIS; // USB VBUS Droop Control Raw Interrupt Status
 		volatile uint32_t vbusDroopCtrlIM; // USB VBUS Droop Control Interrupt Mask
@@ -665,7 +665,7 @@ namespace tivaC
 		volatile uint32_t idValidIM; // USB ID Valid Detect Interrupt Mask
 		volatile uint32_t idValidISC; // USB ID Valid Detect Interrupt Status and Clear
 		volatile uint32_t dmaSel; // USB DMA Select
-		const volatile uint32_t reserved19[731];
+		std::array<const volatile uint32_t, 731> reserved19;
 		volatile uint32_t peripheralProps;
 	};
 
@@ -681,17 +681,17 @@ namespace tivaC
 		volatile uint32_t done; // EEPROM Done Status
 		volatile uint32_t ctrlStatus; // EEPROM Support Control and Status
 		volatile uint32_t unlock; // EEPROM Unlock
-		const volatile uint32_t reserved1[3];
+		std::array<const volatile uint32_t, 3> reserved1;
 		volatile uint32_t prot; // EEPROM Protection
 		volatile uint32_t passwd0; // EEPROM Password
 		volatile uint32_t passwd1; // EEPROM Password
 		volatile uint32_t passwd2; // EEPROM Password
 		volatile uint32_t itr; // EEPROM Interrupt
-		const volatile uint32_t reserved2[3];
+		std::array<const volatile uint32_t, 3> reserved2;
 		volatile uint32_t hide; // EEPROM Block Hide
-		const volatile uint32_t reserved3[11];
+		std::array<const volatile uint32_t, 11> reserved3;
 		volatile uint32_t dbgMassErase; // EEPROM Debug Mass Erase
-		const volatile uint32_t reserved4[975];
+		std::array<const volatile uint32_t, 975> reserved4;
 		volatile uint32_t peripheralProps; // EEPROM Peripheral Properties
 	};
 
@@ -731,33 +731,33 @@ namespace tivaC
 		volatile uint32_t flashCtrlRIS; // Flash Controller Raw Interrupt Status
 		volatile uint32_t flashCtrlIM; // Flash Controller Interrupt Mask
 		volatile uint32_t flashCtrlMISC; // Flash Controller Masked Interrupt Status and Clear
-		const volatile uint32_t reserved0[2];
+		std::array<const volatile uint32_t, 2> reserved0;
 		volatile uint32_t flashMemCtrl2;
-		const volatile uint32_t reserved1[3];
+		std::array<const volatile uint32_t, 3> reserved1;
 		volatile uint32_t flashWriteBufferValid;
-		const volatile uint32_t reserved2[51];
+		std::array<const volatile uint32_t, 51> reserved2;
 		volatile uint32_t flashWriteBufferN;
-		const volatile uint32_t reserved3[943];
+		std::array<const volatile uint32_t, 943> reserved3;
 		volatile uint32_t flashSize;
 		volatile uint32_t sramSize;
 		const volatile uint32_t reserved4;
 
 		volatile uint32_t romSWMap;
-		const volatile uint32_t reserved5[72];
+		std::array<const volatile uint32_t, 72> reserved5;
 		volatile uint32_t romCtrl; // ROM Control
-		const volatile uint32_t reserved6[55];
+		std::array<const volatile uint32_t, 55> reserved6;
 		volatile uint32_t bootConfig; // Boot Configuration
-		const volatile uint32_t reserved7[3];
+		std::array<const volatile uint32_t, 3> reserved7;
 		volatile uint32_t userReg0; // User Register 0
 		volatile uint32_t userReg1; // User Register 1
 		volatile uint32_t userReg2; // User Register 2
 		volatile uint32_t userReg3; // User Register 3
-		const volatile uint32_t reserved8[4];
+		std::array<const volatile uint32_t, 4> reserved8;
 		volatile uint32_t flashMemoryProtReadEn0; // Flash Memory Protection Read Enable 0
 		volatile uint32_t flashMemoryProtReadEn1; // Flash Memory Protection Read Enable 1
 		volatile uint32_t flashMemoryProtReadEn2; // Flash Memory Protection Read Enable 2
 		volatile uint32_t flashMemoryProtReadEn3; // Flash Memory Protection Read Enable 3
-		const volatile uint32_t reserved9[124];
+		std::array<const volatile uint32_t, 124> reserved9;
 		volatile uint32_t flashMemoryProtProgEn0; // Flash Memory Protection Program Enable 0
 		volatile uint32_t flashMemoryProtProgEn1; // Flash Memory Protection Program Enable 1
 		volatile uint32_t flashMemoryProtProgEn2; // Flash Memory Protection Program Enable 2
@@ -780,7 +780,7 @@ namespace tivaC
 		volatile uint32_t deviceCaps7;
 		volatile uint32_t deviceCaps8;
 		volatile uint32_t borCtrl;
-		const volatile uint32_t reserved1[3];
+		std::array<const volatile uint32_t, 3> reserved1;
 		volatile uint32_t swResetCtrl0;
 		volatile uint32_t swResetCtrl1;
 		volatile uint32_t swResetCtrl2;
@@ -790,12 +790,12 @@ namespace tivaC
 		volatile uint32_t misc; // Masked Interrupt Status and Clear
 		volatile uint32_t resetCause;
 		volatile uint32_t runClockConfig1;
-		const volatile uint32_t reserved3[2];
+		std::array<const volatile uint32_t, 2> reserved3;
 		volatile uint32_t gpioAHBCtrl; // GPIO High-Performance Bus Control
 		volatile uint32_t runClockConfig2;
-		const volatile uint32_t reserved4[2];
+		std::array<const volatile uint32_t, 2> reserved4;
 		volatile uint32_t mainOscCtrl;
-		const volatile uint32_t reserved5[32];
+		std::array<const volatile uint32_t, 32> reserved5;
 		volatile uint32_t runClockGateCtrl0;
 		volatile uint32_t runClockGateCtrl1;
 		volatile uint32_t runClockGateCtrl2;
@@ -807,27 +807,27 @@ namespace tivaC
 		volatile uint32_t deepSleepClockCtrl0;
 		volatile uint32_t deepSleepClockCtrl1;
 		volatile uint32_t deepSleepClockCtrl2;
-		const volatile uint32_t reserved8[6];
+		std::array<const volatile uint32_t, 6> reserved8;
 		volatile uint32_t deepSleepClockConfig;
 		const volatile uint32_t reserved9;
 		volatile uint32_t sysProps;
 		volatile uint32_t precisionIntOscCal; // Precision Internal Oscillator Calibration
 		volatile uint32_t precisionIntOscStats; // Precision Internal Oscillator Statistics
-		const volatile uint32_t reserved10[2];
+		std::array<const volatile uint32_t, 2> reserved10;
 		volatile uint32_t pllFreq0;
 		volatile uint32_t pllFreq1;
 		volatile uint32_t pllStatus;
-		const volatile uint32_t reserved11[7];
+		std::array<const volatile uint32_t, 7> reserved11;
 		volatile uint32_t sleepPowerConfig;
 		volatile uint32_t deepSleepPowerConfig;
 		volatile uint32_t deviceCaps9;
-		const volatile uint32_t reserved12[3];
+		std::array<const volatile uint32_t, 3> reserved12;
 		volatile uint32_t nvmInfo;
-		const volatile uint32_t reserved13[4];
+		std::array<const volatile uint32_t, 4> reserved13;
 		volatile uint32_t ldoSleepCtrl;
 		const volatile uint32_t reserved14;
 		volatile uint32_t ldoDeepSleepCtrl;
-		const volatile uint32_t reserved15[80];
+		std::array<const volatile uint32_t, 80> reserved15;
 		volatile uint32_t wdtPresent;
 		volatile uint32_t timerPresent;
 		volatile uint32_t gpioPresent;
@@ -839,16 +839,16 @@ namespace tivaC
 		volatile uint32_t i2cPresent;
 		const volatile uint32_t reserved17;
 		volatile uint32_t usbPresent;
-		const volatile uint32_t reserved18[2];
+		std::array<const volatile uint32_t, 2> reserved18;
 		volatile uint32_t canPresent;
 		volatile uint32_t adcPresent;
 		volatile uint32_t compPresent;
 		volatile uint32_t pwmPresent;
 		volatile uint32_t qeiPresent;
-		const volatile uint32_t reserved19[4];
+		std::array<const volatile uint32_t, 4> reserved19;
 		volatile uint32_t eepromPresent;
 		volatile uint32_t wtimerPresent;
-		const volatile uint32_t reserved20[104];
+		std::array<const volatile uint32_t, 104> reserved20;
 		volatile uint32_t wdtSwReset;
 		volatile uint32_t timerSwReset;
 		volatile uint32_t gpioSwReset;
@@ -860,16 +860,16 @@ namespace tivaC
 		volatile uint32_t i2cSwReset;
 		const volatile uint32_t reserved22;
 		volatile uint32_t usbSwReset;
-		const volatile uint32_t reserved23[2];
+		std::array<const volatile uint32_t, 2> reserved23;
 		volatile uint32_t canSwReset;
 		volatile uint32_t adcSwReset;
 		volatile uint32_t compSwReset;
 		volatile uint32_t pwmSwReset;
 		volatile uint32_t qeiSwReset;
-		const volatile uint32_t reserved24[4];
+		std::array<const volatile uint32_t, 4> reserved24;
 		volatile uint32_t eepromSwReset;
 		volatile uint32_t wtimerSwReset;
-		const volatile uint32_t reserved25[40];
+		std::array<const volatile uint32_t, 40> reserved25;
 		volatile uint32_t runClockGateCtrlWDT;
 		volatile uint32_t runClockGateCtrlTimer;
 		volatile uint32_t runClockGateCtrlGPIO;
@@ -881,16 +881,16 @@ namespace tivaC
 		volatile uint32_t runClockGateCtrlI2C;
 		const volatile uint32_t reserved27;
 		volatile uint32_t runClockGateCtrlUSB;
-		const volatile uint32_t reserved28[2];
+		std::array<const volatile uint32_t, 2> reserved28;
 		volatile uint32_t runClockGateCtrlCAN;
 		volatile uint32_t runClockGateCtrlADC;
 		volatile uint32_t runClockGateCtrlComp;
 		volatile uint32_t runClockGateCtrlPWM;
 		volatile uint32_t runClockGateCtrlQEI;
-		const volatile uint32_t reserved29[4];
+		std::array<const volatile uint32_t, 4> reserved29;
 		volatile uint32_t runClockGateCtrlEEPROM;
 		volatile uint32_t runClockGateCtrlWTimer;
-		const volatile uint32_t reserved30[40];
+		std::array<const volatile uint32_t, 40> reserved30;
 		volatile uint32_t sleepClockGateCtrlWDT;
 		volatile uint32_t sleepClockGateCtrlTimer;
 		volatile uint32_t sleepClockGateCtrlGPIO;
@@ -902,16 +902,16 @@ namespace tivaC
 		volatile uint32_t sleepClockGateCtrlI2C;
 		const volatile uint32_t reserved32;
 		volatile uint32_t sleepClockGateCtrlUSB;
-		const volatile uint32_t reserved33[2];
+		std::array<const volatile uint32_t, 2> reserved33;
 		volatile uint32_t sleepClockGateCtrlCAN;
 		volatile uint32_t sleepClockGateCtrlADC;
 		volatile uint32_t sleepClockGateCtrlComp;
 		volatile uint32_t sleepClockGateCtrlPWM;
 		volatile uint32_t sleepClockGateCtrlQEI;
-		const volatile uint32_t reserved34[4];
+		std::array<const volatile uint32_t, 4> reserved34;
 		volatile uint32_t sleepClockGateCtrlEEPROM;
 		volatile uint32_t sleepClockGateCtrlWTimer;
-		const volatile uint32_t reserved35[40];
+		std::array<const volatile uint32_t, 40> reserved35;
 		volatile uint32_t deepSleepGateCtrlWDT;
 		volatile uint32_t deepSleepGateCtrlTimer;
 		volatile uint32_t deepSleepGateCtrlGPIO;
@@ -923,16 +923,16 @@ namespace tivaC
 		volatile uint32_t deepSleepGateCtrlI2C;
 		const volatile uint32_t reserved37;
 		volatile uint32_t deepSleepGateCtrlUSB;
-		const volatile uint32_t reserved38[2];
+		std::array<const volatile uint32_t, 2> reserved38;
 		volatile uint32_t deepSleepGateCtrlCAN;
 		volatile uint32_t deepSleepGateCtrlADC;
 		volatile uint32_t deepSleepGateCtrlComp;
 		volatile uint32_t deepSleepGateCtrlPWM;
 		volatile uint32_t deepSleepGateCtrlQEI;
-		const volatile uint32_t reserved39[4];
+		std::array<const volatile uint32_t, 4> reserved39;
 		volatile uint32_t deepSleepGateCtrlEEPROM;
 		volatile uint32_t deepSleepGateCtrlWTimer;
-		const volatile uint32_t reserved40[104];
+		std::array<const volatile uint32_t, 104> reserved40;
 		volatile uint32_t periphReadyWDT;
 		volatile uint32_t periphReadyTimier;
 		volatile uint32_t periphReadyGPIO;
@@ -944,13 +944,13 @@ namespace tivaC
 		volatile uint32_t periphReadyI2C;
 		const volatile uint32_t reserved42;
 		volatile uint32_t periphReadyUSB;
-		const volatile uint32_t reserved43[2];
+		std::array<const volatile uint32_t, 2> reserved43;
 		volatile uint32_t periphReadyCAN;
 		volatile uint32_t periphReadyADC;
 		volatile uint32_t periphReadyComp;
 		volatile uint32_t periphReadyPWM;
 		volatile uint32_t periphReadyQEI;
-		const volatile uint32_t reserved44[4];
+		std::array<const volatile uint32_t, 4> reserved44;
 		volatile uint32_t periphReadyEEPROM;
 		volatile uint32_t periphReadyWTimer;
 	};
@@ -974,12 +974,12 @@ namespace tivaC
 		volatile uint32_t altClr;
 		volatile uint32_t prioritySet;
 		volatile uint32_t priorityClr;
-		const volatile uint32_t reserved0[3];
+		std::array<const volatile uint32_t, 3> reserved0;
 		volatile uint32_t errorClr;
-		const volatile uint32_t reserved1[300];
+		std::array<const volatile uint32_t, 300> reserved1;
 		volatile uint32_t chnAssignment;
 		volatile uint32_t chnIS; // DMA Channel Interrupt Status
-		const volatile uint32_t reserved2[2];
+		std::array<const volatile uint32_t, 2> reserved2;
 		volatile uint32_t chnMapSel0; // DMA Channel Map Select 0
 		volatile uint32_t chnMapSel1; // DMA Channel Map Select 1
 		volatile uint32_t chnMapSel2; // DMA Channel Map Select 2
@@ -997,13 +997,13 @@ namespace tivaC
 	struct nvic_t final
 	{
 		std::array<volatile uint32_t, 8> intrSetEnable;
-		const volatile uint32_t reserved0[24];
+		std::array<const volatile uint32_t, 24> reserved0;
 		std::array<volatile uint32_t, 8> intrClrEnable;
-		const volatile uint32_t reserved1[24];
+		std::array<const volatile uint32_t, 24> reserved1;
 		std::array<volatile uint32_t, 8> intrSetPending;
-		const volatile uint32_t reserved2[24];
+		std::array<const volatile uint32_t, 24> reserved2;
 		std::array<volatile uint32_t, 8> intrClrPending;
-		const volatile uint32_t reserved3[24];
+		std::array<const volatile uint32_t, 24> reserved3;
 		std::array<const volatile uint32_t, 8> intrActive;
 
 		constexpr void enableInterrupt(const uint32_t intrNumber) noexcept
@@ -1075,66 +1075,126 @@ namespace tivaC
 	constexpr static const uintptr_t nvicBase{0xE000E100};
 } // namespace tivaC
 
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &watchdog0{*reinterpret_cast<tivaC::watchdog_t *>(tivaC::watchdog0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &watchdog1{*reinterpret_cast<tivaC::watchdog_t *>(tivaC::watchdog1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioAAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioABaseAPB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioBAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioBBaseAPB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioCAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioCBaseAPB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioDAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioDBaseAPB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &ssi0{*reinterpret_cast<tivaC::ssi_t *>(tivaC::ssi0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &ssi1{*reinterpret_cast<tivaC::ssi_t *>(tivaC::ssi1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &ssi2{*reinterpret_cast<tivaC::ssi_t *>(tivaC::ssi2Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &ssi3{*reinterpret_cast<tivaC::ssi_t *>(tivaC::ssi3Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &uart0{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &uart1{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &uart2{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart2Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &uart3{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart3Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &uart4{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart4Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &uart5{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart5Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &uart6{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart6Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &uart7{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart7Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &i2c0{*reinterpret_cast<tivaC::i2c_t *>(tivaC::i2c0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &i2c1{*reinterpret_cast<tivaC::i2c_t *>(tivaC::i2c1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &i2c2{*reinterpret_cast<tivaC::i2c_t *>(tivaC::i2c2Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &i2c3{*reinterpret_cast<tivaC::i2c_t *>(tivaC::i2c3Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioEAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioEBaseAPB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioFAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioFBaseAPB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &pwm0{*reinterpret_cast<tivaC::pwm_t *>(tivaC::pwm0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &pwm1{*reinterpret_cast<tivaC::pwm_t *>(tivaC::pwm1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &qei0{*reinterpret_cast<tivaC::qei_t *>(tivaC::qei0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &qei1{*reinterpret_cast<tivaC::qei_t *>(tivaC::qei1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &timer0{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &timer1{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &timer2{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer2Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &timer3{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer3Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &timer4{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer4Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &timer5{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer5Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &wtimer0{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &wtimer1{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &adc0{*reinterpret_cast<tivaC::adc_t *>(tivaC::adc0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &adc1{*reinterpret_cast<tivaC::adc_t *>(tivaC::adc1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &comp{*reinterpret_cast<tivaC::comp_t *>(tivaC::compBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &can0{*reinterpret_cast<tivaC::can_t *>(tivaC::can0Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &can1{*reinterpret_cast<tivaC::can_t *>(tivaC::can1Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &wtimer2{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer2Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &wtimer3{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer3Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &wtimer4{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer4Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &wtimer5{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer5Base)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &usbCtrl{*reinterpret_cast<tivaC::usb_t *>(tivaC::usbBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioA{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioABaseAHB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioBBaseAHB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioC{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioCBaseAHB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioD{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioDBaseAHB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioE{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioEBaseAHB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &gpioF{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioFBaseAHB)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &eeprom{*reinterpret_cast<tivaC::eeprom_t *>(tivaC::eepromBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &sysExc{*reinterpret_cast<tivaC::sysExc_t *>(tivaC::sysExcBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &hib{*reinterpret_cast<tivaC::hib_t *>(tivaC::hibBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &flashCtrl{*reinterpret_cast<tivaC::flashCtrl_t *>(tivaC::flashCtrlBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &sysCtrl{*reinterpret_cast<tivaC::sysCtrl_t *>(tivaC::sysCtrlBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &udma{*reinterpret_cast<tivaC::udma_t *>(tivaC::udmaBase)};
 
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &sysTick{*reinterpret_cast<tivaC::sysTick_t *>(tivaC::sysTickBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &nvic{*reinterpret_cast<tivaC::nvic_t *>(tivaC::nvicBase)};
 
 template<typename T> struct readFIFO_t;
@@ -1144,6 +1204,7 @@ template<> struct readFIFO_t<uint8_t> final
 {
 	void operator ()(volatile const tivaC::usb_t::fifo_t &fifo, void *const buffer) noexcept
 	{
+		// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 		auto &data{*reinterpret_cast<uint8_t *>(buffer)};
 		data = fifo.u8;
 	}
@@ -1153,6 +1214,7 @@ template<> struct readFIFO_t<uint16_t> final
 {
 	void operator ()(volatile const tivaC::usb_t::fifo_t &fifo, void *const buffer) noexcept
 	{
+		// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 		auto &data{*reinterpret_cast<uint16_t *>(buffer)};
 		data = fifo.u16;
 	}
@@ -1162,6 +1224,7 @@ template<> struct readFIFO_t<uint32_t> final
 {
 	void operator ()(volatile const tivaC::usb_t::fifo_t &fifo, void *const buffer) noexcept
 	{
+		// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 		auto &data{*reinterpret_cast<uint32_t *>(buffer)};
 		data = fifo.u32;
 	}
@@ -1171,6 +1234,7 @@ template<> struct writeFIFO_t<uint8_t> final
 {
 	void operator ()(volatile tivaC::usb_t::fifo_t &fifo, const void *const buffer) noexcept
 	{
+		// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 		const auto &data{*reinterpret_cast<const uint8_t *>(buffer)};
 		fifo.u8 = data;
 	}
@@ -1180,6 +1244,7 @@ template<> struct writeFIFO_t<uint16_t> final
 {
 	void operator ()(volatile tivaC::usb_t::fifo_t &fifo, const void *const buffer) noexcept
 	{
+		// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 		const auto &data{*reinterpret_cast<const uint16_t *>(buffer)};
 		fifo.u16 = data;
 	}
@@ -1189,6 +1254,7 @@ template<> struct writeFIFO_t<uint32_t> final
 {
 	void operator ()(volatile tivaC::usb_t::fifo_t &fifo, const void *const buffer) noexcept
 	{
+		// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 		const auto &data{*reinterpret_cast<const uint32_t *>(buffer)};
 		fifo.u32 = data;
 	}

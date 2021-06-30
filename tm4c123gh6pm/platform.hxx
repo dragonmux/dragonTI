@@ -1012,6 +1012,43 @@ namespace tivaC
 			{ intrClrEnable[intrNumber >> 5] = 1 << (intrNumber & 0x1FU); }
 	};
 
+	struct scb_t final
+	{
+		const volatile uint32_t cpuid;
+		volatile uint32_t intCtrl;
+		volatile uint32_t vtable;
+		volatile uint32_t apint;
+		volatile uint32_t sysCtrl;
+		volatile uint32_t cfgCtrl;
+		std::array<volatile uint32_t, 3> sysPriority;
+		volatile uint32_t sysHandlerCtrl;
+		volatile uint32_t faultStatus;
+		volatile uint32_t hardFaultStatus;
+		std::array<const volatile uint32_t, 2> reserved0;
+		volatile uint32_t memMgmtFaultAddr;
+		volatile uint32_t faultAddr;
+	};
+
+	struct mpu_t final
+	{
+		struct regionAlias_t final
+		{
+			volatile uint32_t base;
+			volatile uint32_t attr;
+		};
+
+		const volatile uint32_t type;
+		volatile uint32_t ctrl;
+		volatile uint32_t number;
+		volatile uint32_t base;
+		volatile uint32_t attr;
+		std::array<regionAlias_t, 3> aliases;
+	};
+
+	struct fpu_t final
+	{
+	};
+
 	constexpr static const uintptr_t watchdog0Base{0x40000000U};
 	constexpr static const uintptr_t watchdog1Base{0x40001000U};
 	constexpr static const uintptr_t gpioABaseAPB{0x40004000U};
@@ -1073,6 +1110,8 @@ namespace tivaC
 
 	constexpr static const uintptr_t sysTickBase{0xE000E010};
 	constexpr static const uintptr_t nvicBase{0xE000E100};
+	constexpr static const uintptr_t scbBase{0xE000ED00};
+	constexpr static const uintptr_t mpuBase{0xE000ED90};
 } // namespace tivaC
 
 // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
@@ -1196,6 +1235,10 @@ static auto &udma{*reinterpret_cast<tivaC::udma_t *>(tivaC::udmaBase)};
 static auto &sysTick{*reinterpret_cast<tivaC::sysTick_t *>(tivaC::sysTickBase)};
 // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
 static auto &nvic{*reinterpret_cast<tivaC::nvic_t *>(tivaC::nvicBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
+static auto &scb{*reinterpret_cast<tivaC::scb_t *>(tivaC::scbBase)};
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
+static auto &mpu{*reinterpret_cast<tivaC::mpu_t *>(tivaC::mpuBase)};
 
 template<typename T> struct readFIFO_t;
 template<typename T> struct writeFIFO_t;

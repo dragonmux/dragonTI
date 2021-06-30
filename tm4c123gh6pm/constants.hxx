@@ -425,6 +425,15 @@ namespace vals
 
 	namespace sysCtrl
 	{
+		// Reset cause register constants
+		constexpr static const uint32_t resetCauseExternal{0x00000001U};
+		constexpr static const uint32_t resetCausePOR{0x00000002U};
+		constexpr static const uint32_t resetCauseBOR{0x00000004U};
+		constexpr static const uint32_t resetCauseWDT0{0x00000008U};
+		constexpr static const uint32_t resetCauseSoftware{0x00000010U};
+		constexpr static const uint32_t resetCauseWDT1{0x00000020U};
+		constexpr static const uint32_t resetCauseMainOscFail{0x00010000U};
+
 		// Oscillator config register 1 constants
 		constexpr static const uint32_t runClockCfg1Mask{0xF021D00EU};
 		constexpr static const uint32_t runClockCfg1ACG{0x08000000};

@@ -6,6 +6,7 @@
 
 namespace vals
 {
+	// NOLINTNEXTLINE(clang-diagnostic-unknown-attributes)
 	template<typename T> [[gnu::optimize("O0")]] inline void readDiscard(T &value) noexcept
 		{ [[maybe_unused]] T result = value; }
 

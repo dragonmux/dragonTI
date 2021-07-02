@@ -341,7 +341,7 @@ namespace vals
 			}
 			else
 			{
-				return [](const uint16_t size) noexcept
+				return [size]() noexcept
 				{
 					if (size <= 8)
 						return fifoSize16;
@@ -359,7 +359,7 @@ namespace vals
 						return fifoSize1024;
 					else
 						return fifoSize2048;
-				}(size) | fifoSizeDoubleBuffered;
+				}() | fifoSizeDoubleBuffered;
 			}
 		}
 

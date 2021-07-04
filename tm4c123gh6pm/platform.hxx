@@ -734,10 +734,10 @@ namespace tivaC
 		std::array<const volatile uint32_t, 2> reserved0;
 		volatile uint32_t flashMemCtrl2;
 		std::array<const volatile uint32_t, 3> reserved1;
-		volatile uint32_t flashWriteBufferValid;
+		volatile uint32_t flashMemBufferValid;
 		std::array<const volatile uint32_t, 51> reserved2;
-		volatile uint32_t flashWriteBufferN;
-		std::array<const volatile uint32_t, 943> reserved3;
+		std::array<volatile uint32_t, 32> flashMemBuffer;
+		std::array<const volatile uint32_t, 912> reserved3;
 		volatile uint32_t flashSize;
 		volatile uint32_t sramSize;
 		const volatile uint32_t reserved4;

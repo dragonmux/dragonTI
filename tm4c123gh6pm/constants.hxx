@@ -424,6 +424,16 @@ namespace vals
 		constexpr static const uint32_t gpCtrlStatusDeviceMode{0x00000001U};
 	} // namespace usb
 
+	namespace flashCtrl
+	{
+		constexpr static const uint32_t flashMemCtrlWrite{0x00000001U};
+		constexpr static const uint32_t flashMemCtrlErase{0x00000002U};
+		constexpr static const uint32_t flashMemCtrlMassErase{0x00000004U};
+		constexpr static const uint32_t flashMemCtrlCommit{0x00000008U};
+		constexpr static const uint32_t flashMemCtrlKey{0xA4420000U};
+		// 0x71D50000U is used when BOOTCFG[KEY] == 0.
+	} // namespace flashCtrl
+
 	namespace sysCtrl
 	{
 		// Reset cause register constants
@@ -572,6 +582,12 @@ namespace vals
 		// USB perhipheral ready constants
 		constexpr static const uint32_t periphReadyUSB{0x00000001};
 	} // namespace sysCtrl
+
+	namespace scb
+	{
+		constexpr static const uint32_t apintKey{0x05FA0000};
+		constexpr static const uint32_t apintSystemResetRequest{0x00000004};
+	} // namespace scb
 } // namespace vals
 
 #endif /*TM4C123GH6PM_CONSTANTS___HXX*/

@@ -227,6 +227,50 @@ namespace vals
 		constexpr static const uint32_t clockConfigPIOsc{5};
 	} // namespace ssi
 
+	namespace timer
+	{
+		constexpr static const uint32_t configMask{0xFFFFFFF8};
+		constexpr static const uint32_t configWide{0x00000000};
+		constexpr static const uint32_t configRTC{0x00000001};
+		constexpr static const uint32_t configNarrow{0x00000004};
+
+		constexpr static const uint32_t modeMask{0xFFFFF000};
+		constexpr static const uint32_t modeOneShot{0x00000001};
+		constexpr static const uint32_t modePeriodic{0x00000002};
+		constexpr static const uint32_t modeCapture{0x00000003};
+		constexpr static const uint32_t modeEdgeCount{0x0000000};
+		constexpr static const uint32_t modeEdgeTime{0x00000004};
+		constexpr static const uint32_t modeAltCC{0x0000000};
+		constexpr static const uint32_t modeAltPWM{0x00000008};
+		constexpr static const uint32_t modeCountDown{0x0000000};
+		constexpr static const uint32_t modeCountUp{0x00000010};
+		constexpr static const uint32_t modeMatchItrEnable{0x0000020};
+		constexpr static const uint32_t modeWaitOnTrigger{0x0000040};
+		constexpr static const uint32_t modeSnapshot{0x0000080};
+		constexpr static const uint32_t modeTimeoutLoad{0x0000100};
+		constexpr static const uint32_t modePWMItrEnable{0x0000200};
+		constexpr static const uint32_t modeTimeoutUpdate{0x0000400};
+		constexpr static const uint32_t modePWMLegacy{0x0000800};
+
+		constexpr static const uint32_t ctrlMask{0xFFFF9080};
+		constexpr static const uint32_t ctrlTimerAEnable{0x00000001};
+		constexpr static const uint32_t ctrlTimerAStallEnable{0x00000002};
+		constexpr static const uint32_t ctrlTimerBEnable{0x00000100};
+		constexpr static const uint32_t ctrlTimerBStallEnable{0x00000200};
+
+		constexpr static const uint32_t itrMask{0xFFFEF0E0};
+		constexpr static const uint32_t itrTimerATimeOut{0x00000001};
+		constexpr static const uint32_t itrTimerACaptureMatch{0x00000002};
+		constexpr static const uint32_t itrTimerACaptureEvent{0x00000004};
+		constexpr static const uint32_t itrRTC{0x00000008};
+		constexpr static const uint32_t itrTimerAMatch{0x00000010};
+		constexpr static const uint32_t itrTimerBTimeOut{0x00000100};
+		constexpr static const uint32_t itrTimerBCaptureMatch{0x00000200};
+		constexpr static const uint32_t itrTimerBCaptureEvent{0x00000400};
+		constexpr static const uint32_t itrTimerBMatch{0x00000800};
+		constexpr static const uint32_t itrWriteUpdateError{0x00010000};
+	} // namespace timer
+
 	namespace usb
 	{
 		enum class endpointDir_t : uint8_t
@@ -548,6 +592,14 @@ namespace vals
 		constexpr static const uint32_t gpioAHBCtrlPortE{0x00000010};
 		constexpr static const uint32_t gpioAHBCtrlPortF{0x00000020};
 
+		// Timer run-mode clock gating control constants
+		constexpr static const uint32_t runClockGateCtrlTimer0{0x00000001};
+		constexpr static const uint32_t runClockGateCtrlTimer1{0x00000002};
+		constexpr static const uint32_t runClockGateCtrlTimer2{0x00000004};
+		constexpr static const uint32_t runClockGateCtrlTimer3{0x00000008};
+		constexpr static const uint32_t runClockGateCtrlTimer4{0x00000010};
+		constexpr static const uint32_t runClockGateCtrlTimer5{0x00000020};
+
 		// GPIO run-mode clock gating control constants
 		constexpr static const uint32_t runClockGateCtrlGPIOA{0x00000001};
 		constexpr static const uint32_t runClockGateCtrlGPIOB{0x00000002};
@@ -565,7 +617,15 @@ namespace vals
 		// USB run-mode clock gating control constants
 		constexpr static const uint32_t runClockGateCtrlUSB{0x00000001};
 
-		// GPIO perhipheral ready constants
+		// Timer peripheral ready constants
+		constexpr static const uint32_t periphReadyTimer0{0x00000001};
+		constexpr static const uint32_t periphReadyTimer1{0x00000002};
+		constexpr static const uint32_t periphReadyTimer2{0x00000004};
+		constexpr static const uint32_t periphReadyTimer3{0x00000008};
+		constexpr static const uint32_t periphReadyTimer4{0x00000010};
+		constexpr static const uint32_t periphReadyTimer5{0x00000020};
+
+		// GPIO peripheral ready constants
 		constexpr static const uint32_t periphReadyGPIOA{0x00000001};
 		constexpr static const uint32_t periphReadyGPIOB{0x00000002};
 		constexpr static const uint32_t periphReadyGPIOC{0x00000004};
@@ -573,13 +633,13 @@ namespace vals
 		constexpr static const uint32_t periphReadyGPIOE{0x00000010};
 		constexpr static const uint32_t periphReadyGPIOF{0x00000020};
 
-		// SSI (SPI) perhipheral ready constants
+		// SSI (SPI) peripheral ready constants
 		constexpr static const uint32_t periphReadySSI0{0x00000001};
 		constexpr static const uint32_t periphReadySSI1{0x00000002};
 		constexpr static const uint32_t periphReadySSI2{0x00000004};
 		constexpr static const uint32_t periphReadySSI3{0x00000008};
 
-		// USB perhipheral ready constants
+		// USB peripheral ready constants
 		constexpr static const uint32_t periphReadyUSB{0x00000001};
 	} // namespace sysCtrl
 

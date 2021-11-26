@@ -374,15 +374,15 @@ namespace tivaC
 		volatile uint32_t timerBPrescale;
 		volatile uint32_t timerAPrescaleMatch;
 		volatile uint32_t timerBPrescaleMatch;
-		volatile uint32_t timerA;
-		volatile uint32_t timerB;
+		const volatile uint32_t timerA;
+		const volatile uint32_t timerB;
 		volatile uint32_t timerAValue;
 		volatile uint32_t timerBValue;
 		volatile uint32_t rtcPreDiv; // GPTM RTC Predivide
-		volatile uint32_t timerAPrescaleSnap; // GPTM Timer A Prescale Snapshot
-		volatile uint32_t timerBPrescaleSnap; // GPTM Timer B Prescale Snapshot
-		volatile uint32_t timerAPrescaleValue;
-		volatile uint32_t timerBPrescaleValue;
+		const volatile uint32_t timerAPrescaleSnap; // GPTM Timer A Prescale Snapshot
+		const volatile uint32_t timerBPrescaleSnap; // GPTM Timer B Prescale Snapshot
+		const volatile uint32_t timerAPrescaleValue;
+		const volatile uint32_t timerBPrescaleValue;
 		std::array<const volatile uint32_t, 981> reserved1;
 		volatile uint32_t peripheralProps;
 	};
@@ -934,7 +934,7 @@ namespace tivaC
 		volatile uint32_t deepSleepGateCtrlWTimer;
 		std::array<const volatile uint32_t, 104> reserved40;
 		volatile uint32_t periphReadyWDT;
-		volatile uint32_t periphReadyTimier;
+		volatile uint32_t periphReadyTimer;
 		volatile uint32_t periphReadyGPIO;
 		volatile uint32_t periphReadyUDMA;
 		const volatile uint32_t reserved41;

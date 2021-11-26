@@ -17,6 +17,45 @@ namespace vals
 		constexpr static const uint32_t lockLocked{0x00000001};
 		constexpr static const uint32_t lockKey{0x4C4F434B};
 
+		namespace portA
+		{
+			// PA0 alternative functions
+			constexpr static const uint32_t portCtrlPin0Mask{0x0000000F};
+			constexpr static const uint32_t portCtrlPin0UART0Rx{0x00000001};
+			constexpr static const uint32_t portCtrlPin0CAN1Rx{0x00000008};
+
+			// PA1 alternative functions
+			constexpr static const uint32_t portCtrlPin1Mask{0x000000F0};
+			constexpr static const uint32_t portCtrlPin1UART0Tx{0x00000010};
+			constexpr static const uint32_t portCtrlPin1CAN1Tx{0x00000080};
+
+			// PA2 alternative functions
+			constexpr static const uint32_t portCtrlPin2Mask{0x00000F00};
+			constexpr static const uint32_t portCtrlPin2SSI0Clk{0x00000200};
+
+			// PA3 alternative functions
+			constexpr static const uint32_t portCtrlPin3Mask{0x0000F000};
+			constexpr static const uint32_t portCtrlPin3SSI0CS{0x00002000};
+
+			// PA4 alternative functions
+			constexpr static const uint32_t portCtrlPin4Mask{0x000F0000};
+			constexpr static const uint32_t portCtrlPin4SSI0Rx{0x00020000};
+
+			// PA5 alternative functions
+			constexpr static const uint32_t portCtrlPin5Mask{0x00F00000};
+			constexpr static const uint32_t portCtrlPin5SSI0Tx{0x00200000};
+
+			// PA6 alternative functions
+			constexpr static const uint32_t portCtrlPin6Mask{0x0F000000};
+			constexpr static const uint32_t portCtrlPin6I2C1Clk{0x03000000};
+			constexpr static const uint32_t portCtrlPin6M1PWM2{0x05000000};
+
+			// PA7 alternative functions
+			constexpr static const uint32_t portCtrlPin7Mask{0xF0000000};
+			constexpr static const uint32_t portCtrlPin7I2C1Data{0x30000000};
+			constexpr static const uint32_t portCtrlPin7M1PWM3{0x50000000};
+		} // namespace portA
+
 		namespace portB
 		{
 			// PB0 alternative functions

@@ -688,6 +688,11 @@ namespace vals
 		constexpr static const uint32_t apintSystemResetRequest{0x00000004};
 	} // namespace scb
 
+	namespace dcb
+	{
+		constexpr static const uint32_t exceptMonitorCtrlEnableTrace{0x01000000U};
+	} // namespace dcb
+
 	namespace itm
 	{
 		// "Stimulus Port" (channel) register read-back constants

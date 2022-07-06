@@ -1046,6 +1046,14 @@ namespace tivaC
 		std::array<regionAlias_t, 3> aliases;
 	};
 
+	struct dcb_t final
+	{
+		volatile uint32_t haltCtrlStatus;
+		volatile uint32_t coreRegisterSelect;
+		volatile uint32_t coreRegisterData;
+		volatile uint32_t exceptMonitorCtrl;
+	};
+
 	struct fpu_t final
 	{
 	};
@@ -1178,6 +1186,7 @@ namespace tivaC
 	constexpr static const uintptr_t nvicBase{0xE000E100U};
 	constexpr static const uintptr_t scbBase{0xE000ED00U};
 	constexpr static const uintptr_t mpuBase{0xE000ED90U};
+	constexpr static const uintptr_t dcbBase{0xE000EDF0U};
 	constexpr static const uintptr_t tpiuBase{0xE0040000U};
 	constexpr static const uintptr_t etmBase{0xE0041000U};
 } // namespace tivaC
@@ -1247,6 +1256,7 @@ static auto &sysTick{*reinterpret_cast<tivaC::sysTick_t *>(tivaC::sysTickBase)};
 static auto &nvic{*reinterpret_cast<tivaC::nvic_t *>(tivaC::nvicBase)};
 static auto &scb{*reinterpret_cast<tivaC::scb_t *>(tivaC::scbBase)};
 static auto &mpu{*reinterpret_cast<tivaC::mpu_t *>(tivaC::mpuBase)};
+static auto &dcb{*reinterpret_cast<tivaC::dcb_t *>(tivaC::dcbBase)};
 
 static auto &itm{*reinterpret_cast<tivaC::itm_t *>(tivaC::itmBase)};
 static auto &etm{*reinterpret_cast<tivaC::etm_t *>(tivaC::etmBase)};

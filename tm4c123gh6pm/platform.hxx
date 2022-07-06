@@ -1181,7 +1181,7 @@ namespace tivaC
 	constexpr static const uintptr_t sysCtrlBase{0x400FE000U};
 	constexpr static const uintptr_t udmaBase{0x400FF000U};
 
-	constexpr static const uintptr_t itmBase{0xE000000U};
+	constexpr static const uintptr_t itmBase{0xE0000000U};
 	constexpr static const uintptr_t sysTickBase{0xE000E010U};
 	constexpr static const uintptr_t nvicBase{0xE000E100U};
 	constexpr static const uintptr_t scbBase{0xE000ED00U};

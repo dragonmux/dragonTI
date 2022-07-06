@@ -3,6 +3,7 @@
 #define TM4C123GH6PM_PLATFORM___HXX
 
 #include <cstdint>
+#include <cstddef>
 #include <array>
 
 namespace tivaC
@@ -1049,6 +1050,44 @@ namespace tivaC
 	{
 	};
 
+	struct pid_t final
+	{
+	private:
+		std::array<const volatile uint32_t, 8> pid;
+
+	public:
+		[[nodiscard]] constexpr auto begin() noexcept { return pid.begin(); }
+		[[nodiscard]] constexpr auto begin() const noexcept { return pid.begin(); }
+		[[nodiscard]] constexpr auto end() noexcept { return pid.end(); }
+		[[nodiscard]] constexpr auto end() const noexcept { return pid.end(); }
+		[[nodiscard]] constexpr auto size() const noexcept { return pid.size(); }
+		[[nodiscard]] constexpr auto data() noexcept { return pid.data(); }
+		[[nodiscard]] constexpr auto data() const noexcept { return pid.data(); }
+		[[nodiscard]] constexpr auto &operator [](const size_t i) noexcept
+			{ return pid[(i + 4U) & 7U]; }
+		[[nodiscard]] constexpr auto &operator [](const size_t i) const noexcept
+			{ return pid[(i + 4U) & 7U]; }
+	};
+
+	struct itm_t final
+	{
+		// +0x0
+		std::array<volatile uint32_t, 32> channelData;
+		std::array<const volatile uint32_t, 864> reserved0;
+		// +0xE00
+		volatile uint32_t traceChannelEn;
+		std::array<const volatile uint32_t, 15> reserved1;
+		// +0xE40
+		volatile uint32_t tracePriv;
+		std::array<const volatile uint32_t, 15> reserved2;
+		// +0xE80
+		volatile uint32_t traceCtrl;
+		std::array<const volatile uint32_t, 83> reserved3;
+		// +0xFD0
+		pid_t pid;
+		std::array<const volatile uint32_t, 4> cid;
+	};
+
 	struct etm_t final
 	{
 		volatile uint32_t mainCtrl;
@@ -1134,6 +1173,7 @@ namespace tivaC
 	constexpr static const uintptr_t sysCtrlBase{0x400FE000U};
 	constexpr static const uintptr_t udmaBase{0x400FF000U};
 
+	constexpr static const uintptr_t itmBase{0xE000000U};
 	constexpr static const uintptr_t sysTickBase{0xE000E010};
 	constexpr static const uintptr_t nvicBase{0xE000E100};
 	constexpr static const uintptr_t scbBase{0xE000ED00};
@@ -1268,6 +1308,8 @@ static auto &scb{*reinterpret_cast<tivaC::scb_t *>(tivaC::scbBase)};
 // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &mpu{*reinterpret_cast<tivaC::mpu_t *>(tivaC::mpuBase)};
 
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
+static auto &itm{*reinterpret_cast<tivaC::itm_t *>(tivaC::itmBase)};
 // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &etm{*reinterpret_cast<tivaC::etm_t *>(tivaC::etmBase)};
 

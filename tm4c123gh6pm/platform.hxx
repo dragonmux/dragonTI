@@ -1174,12 +1174,12 @@ namespace tivaC
 	constexpr static const uintptr_t udmaBase{0x400FF000U};
 
 	constexpr static const uintptr_t itmBase{0xE000000U};
-	constexpr static const uintptr_t sysTickBase{0xE000E010};
-	constexpr static const uintptr_t nvicBase{0xE000E100};
-	constexpr static const uintptr_t scbBase{0xE000ED00};
-	constexpr static const uintptr_t mpuBase{0xE000ED90};
-	constexpr static const uintptr_t tpiuBase{0xE0040000};
-	constexpr static const uintptr_t etmBase{0xE0041000};
+	constexpr static const uintptr_t sysTickBase{0xE000E010U};
+	constexpr static const uintptr_t nvicBase{0xE000E100U};
+	constexpr static const uintptr_t scbBase{0xE000ED00U};
+	constexpr static const uintptr_t mpuBase{0xE000ED90U};
+	constexpr static const uintptr_t tpiuBase{0xE0040000U};
+	constexpr static const uintptr_t etmBase{0xE0041000U};
 } // namespace tivaC
 
 // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)

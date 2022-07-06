@@ -1182,136 +1182,76 @@ namespace tivaC
 	constexpr static const uintptr_t etmBase{0xE0041000U};
 } // namespace tivaC
 
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
+// NOLINTBEGIN(cppcoreguidelines-pro-type-reinterpret-cast)
+// NOLINTBEGIN(cppcoreguidelines-avoid-non-const-global-variables)
 static auto &watchdog0{*reinterpret_cast<tivaC::watchdog_t *>(tivaC::watchdog0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &watchdog1{*reinterpret_cast<tivaC::watchdog_t *>(tivaC::watchdog1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioAAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioABaseAPB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioBAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioBBaseAPB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioCAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioCBaseAPB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioDAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioDBaseAPB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &ssi0{*reinterpret_cast<tivaC::ssi_t *>(tivaC::ssi0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &ssi1{*reinterpret_cast<tivaC::ssi_t *>(tivaC::ssi1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &ssi2{*reinterpret_cast<tivaC::ssi_t *>(tivaC::ssi2Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &ssi3{*reinterpret_cast<tivaC::ssi_t *>(tivaC::ssi3Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &uart0{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &uart1{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &uart2{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart2Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &uart3{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart3Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &uart4{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart4Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &uart5{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart5Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &uart6{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart6Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &uart7{*reinterpret_cast<tivaC::uart_t *>(tivaC::uart7Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &i2c0{*reinterpret_cast<tivaC::i2c_t *>(tivaC::i2c0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &i2c1{*reinterpret_cast<tivaC::i2c_t *>(tivaC::i2c1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &i2c2{*reinterpret_cast<tivaC::i2c_t *>(tivaC::i2c2Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &i2c3{*reinterpret_cast<tivaC::i2c_t *>(tivaC::i2c3Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioEAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioEBaseAPB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioFAPB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioFBaseAPB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &pwm0{*reinterpret_cast<tivaC::pwm_t *>(tivaC::pwm0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &pwm1{*reinterpret_cast<tivaC::pwm_t *>(tivaC::pwm1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &qei0{*reinterpret_cast<tivaC::qei_t *>(tivaC::qei0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &qei1{*reinterpret_cast<tivaC::qei_t *>(tivaC::qei1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &timer0{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &timer1{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &timer2{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer2Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &timer3{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer3Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &timer4{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer4Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &timer5{*reinterpret_cast<tivaC::timer_t *>(tivaC::timer5Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &wtimer0{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &wtimer1{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &adc0{*reinterpret_cast<tivaC::adc_t *>(tivaC::adc0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &adc1{*reinterpret_cast<tivaC::adc_t *>(tivaC::adc1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &comp{*reinterpret_cast<tivaC::comp_t *>(tivaC::compBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &can0{*reinterpret_cast<tivaC::can_t *>(tivaC::can0Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &can1{*reinterpret_cast<tivaC::can_t *>(tivaC::can1Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &wtimer2{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer2Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &wtimer3{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer3Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &wtimer4{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer4Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &wtimer5{*reinterpret_cast<tivaC::timer_t *>(tivaC::wtimer5Base)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &usbCtrl{*reinterpret_cast<tivaC::usb_t *>(tivaC::usbBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioA{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioABaseAHB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioB{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioBBaseAHB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioC{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioCBaseAHB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioD{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioDBaseAHB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioE{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioEBaseAHB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &gpioF{*reinterpret_cast<tivaC::gpio_t *>(tivaC::gpioFBaseAHB)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &eeprom{*reinterpret_cast<tivaC::eeprom_t *>(tivaC::eepromBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &sysExc{*reinterpret_cast<tivaC::sysExc_t *>(tivaC::sysExcBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &hib{*reinterpret_cast<tivaC::hib_t *>(tivaC::hibBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &flashCtrl{*reinterpret_cast<tivaC::flashCtrl_t *>(tivaC::flashCtrlBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &sysCtrl{*reinterpret_cast<tivaC::sysCtrl_t *>(tivaC::sysCtrlBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &udma{*reinterpret_cast<tivaC::udma_t *>(tivaC::udmaBase)};
 
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &sysTick{*reinterpret_cast<tivaC::sysTick_t *>(tivaC::sysTickBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &nvic{*reinterpret_cast<tivaC::nvic_t *>(tivaC::nvicBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &scb{*reinterpret_cast<tivaC::scb_t *>(tivaC::scbBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &mpu{*reinterpret_cast<tivaC::mpu_t *>(tivaC::mpuBase)};
 
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &itm{*reinterpret_cast<tivaC::itm_t *>(tivaC::itmBase)};
-// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &etm{*reinterpret_cast<tivaC::etm_t *>(tivaC::etmBase)};
+// NOLINTEND(cppcoreguidelines-avoid-non-const-global-variables)
+// NOLINTEND(cppcoreguidelines-pro-type-reinterpret-cast)
 
 template<typename T> struct readFIFO_t;
 template<typename T> struct writeFIFO_t;

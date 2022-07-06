@@ -474,7 +474,7 @@ namespace vals
 		constexpr static const uint8_t ep0StatusCtrlLTxReady{0x02U};
 		constexpr static const uint8_t epStatusCtrlLTxReady{0x01U};
 		constexpr static const uint8_t ep0StatusCtrlLStalled{0x04U};
-		constexpr static const uint8_t epStatusCtrlLStalled{0x20U};
+		constexpr static const uint8_t epStatusCtrlLStalled{0x40U};
 		constexpr static const uint8_t epStatusCtrLTxUnderRun{0x04U};
 
 		// For host mode

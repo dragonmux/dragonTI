@@ -1049,6 +1049,32 @@ namespace tivaC
 	{
 	};
 
+	struct etm_t final
+	{
+		volatile uint32_t mainCtrl;
+		const volatile uint32_t cfgCode;
+		volatile uint32_t triggerEvt;
+		const volatile uint32_t reserved0;
+		volatile uint32_t status;
+		const volatile uint32_t sysCfg;
+		std::array<const volatile uint32_t, 2> reserved1;
+		volatile uint32_t traceEnEvt;
+		volatile uint32_t traceEnCtrl1;
+		volatile uint32_t fifoFullLevel;
+		std::array<const volatile uint32_t, 5> reserved2;
+		volatile uint32_t freeRunCounterReload;
+		std::array<const volatile uint32_t, 103> reserved3;
+		const volatile uint32_t syncFreq;
+		const volatile uint32_t idCode;
+		const volatile uint32_t cfgCodeExt;
+		const volatile uint32_t reserved4;
+		volatile uint32_t traceEnICECtrl;
+		const volatile uint32_t reserved5;
+		volatile uint32_t timestampEvt;
+		const volatile uint32_t reserved6;
+		volatile uint32_t coreSightTraceID;
+	};
+
 	constexpr static const uintptr_t watchdog0Base{0x40000000U};
 	constexpr static const uintptr_t watchdog1Base{0x40001000U};
 	constexpr static const uintptr_t gpioABaseAPB{0x40004000U};
@@ -1112,6 +1138,8 @@ namespace tivaC
 	constexpr static const uintptr_t nvicBase{0xE000E100};
 	constexpr static const uintptr_t scbBase{0xE000ED00};
 	constexpr static const uintptr_t mpuBase{0xE000ED90};
+	constexpr static const uintptr_t tpiuBase{0xE0040000};
+	constexpr static const uintptr_t etmBase{0xE0041000};
 } // namespace tivaC
 
 // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
@@ -1239,6 +1267,9 @@ static auto &nvic{*reinterpret_cast<tivaC::nvic_t *>(tivaC::nvicBase)};
 static auto &scb{*reinterpret_cast<tivaC::scb_t *>(tivaC::scbBase)};
 // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
 static auto &mpu{*reinterpret_cast<tivaC::mpu_t *>(tivaC::mpuBase)};
+
+// NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast, cppcoreguidelines-avoid-non-const-global-variables)
+static auto &etm{*reinterpret_cast<tivaC::etm_t *>(tivaC::etmBase)};
 
 template<typename T> struct readFIFO_t;
 template<typename T> struct writeFIFO_t;

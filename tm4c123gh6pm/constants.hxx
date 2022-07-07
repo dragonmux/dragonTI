@@ -710,6 +710,22 @@ namespace vals
 		constexpr static const uint32_t traceCtrlEnableSynchronousTPIU{0x00000004U};
 		constexpr static const uint32_t traceCtrlDisableSynchronousTPIU{0x00000000U};
 	} // namespace itm
+
+	namespace tpiu
+	{
+		// Formatter flush control register constants
+		constexpr static const uint32_t formatterCtrlEnableContinuous{0x00000002U};
+		constexpr static const uint32_t formatterCtrlDisableContinuous{0x00000000U};
+		constexpr static const uint32_t formatterCtrlTrigger{0x00000100U};
+
+		// Formatter flush status register constants
+		constexpr static const uint32_t formatterStatusTrigger{0x00000001U};
+
+		// Selected pin protocol register constants
+		constexpr static const uint32_t selectedPinProtocolParallel{0x00000000U};
+		constexpr static const uint32_t selectedPinProtocolSWOManchester{0x00000001U};
+		constexpr static const uint32_t selectedPinProtocolSWONRZ{0x00000002U};
+	} // namespace tpiu
 } // namespace vals
 
 #endif /*TM4C123GH6PM_CONSTANTS___HXX*/

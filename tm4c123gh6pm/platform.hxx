@@ -1096,6 +1096,38 @@ namespace tivaC
 		std::array<const volatile uint32_t, 4> cid;
 	};
 
+	struct tpiu_t final
+	{
+		const volatile uint32_t supportedParallelSize;
+		volatile uint32_t currentParallelSize;
+		std::array<const volatile uint32_t, 2> reserved0;
+		volatile uint32_t asyncClockPrescale;
+		std::array<const volatile uint32_t, 55> reserved1;
+		volatile uint32_t selectedPinProtocol;
+		std::array<const volatile uint32_t, 131> reserved2;
+		const volatile uint32_t formatterStatus;
+		volatile uint32_t formatterCtrl;
+		const volatile uint32_t formatterSyncCounter;
+		std::array<const volatile uint32_t, 759> reserved3;
+		const volatile uint32_t trigger;
+		const volatile uint32_t etmFIFOData;
+		const volatile uint32_t itATBCounter2;
+		const volatile uint32_t reserved4;
+		const volatile uint32_t itATBCounter0;
+		const volatile uint32_t itmFIFOData;
+		volatile uint32_t itCtrl;
+		std::array<const volatile uint32_t, 39> reserved5;
+		volatile uint32_t claimSet;
+		volatile uint32_t claimClear;
+		std::array<const volatile uint32_t, 8> reserved6;
+		const volatile uint32_t deviceID;
+		const volatile uint32_t deviceType;
+		pid_t pid;
+		std::array<const volatile uint32_t, 4> cid;
+	};
+
+	static_assert(sizeof(tpiu_t) == 4096);
+
 	struct etm_t final
 	{
 		volatile uint32_t mainCtrl;
@@ -1259,6 +1291,7 @@ static auto &mpu{*reinterpret_cast<tivaC::mpu_t *>(tivaC::mpuBase)};
 static auto &dcb{*reinterpret_cast<tivaC::dcb_t *>(tivaC::dcbBase)};
 
 static auto &itm{*reinterpret_cast<tivaC::itm_t *>(tivaC::itmBase)};
+static auto &tpiu{*reinterpret_cast<tivaC::tpiu_t *>(tivaC::tpiuBase)};
 static auto &etm{*reinterpret_cast<tivaC::etm_t *>(tivaC::etmBase)};
 // NOLINTEND(cppcoreguidelines-avoid-non-const-global-variables)
 // NOLINTEND(cppcoreguidelines-pro-type-reinterpret-cast)

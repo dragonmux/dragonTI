@@ -485,6 +485,8 @@ namespace vals
 		constexpr static const uint8_t epStatusCtrlLNAKTimedOut{0x80U};
 
 		// For device mode
+		constexpr static const uint8_t epStatusCtrlLTxFIFONotEmpty{0x02U};
+		constexpr static const uint8_t epStatusCtrlLTxFIFOFlush{0x08U};
 		constexpr static const uint8_t epStatusCtrlLDataEnd{0x08U};
 		constexpr static const uint8_t epStatusCtrlLSetupEnd{0x10U};
 		constexpr static const uint8_t epStatusCtrlLStall{0x20U};
